@@ -3,330 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piano Lessons | Custom Teacher Website</title>
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --accent: #d4af37; 
-            --bg-light: #f9f9f9;
-            --text-dark: #333333;
-            --text-light: #ffffff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--text-light);
-        }
-
-        header {
-            background-color: var(--primary);
-            color: var(--text-light);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://unsplash.com') no-repeat center center/cover;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
-            padding: 0 1rem;
-            margin-top: 60px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--primary);
-            padding: 0.75rem 2rem;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #bfa030;
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent);
-            margin: 0.5rem auto 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border-top: 4px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .card:hover {
-            border-top-color: var(--accent);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 1.75rem;
-            color: var(--accent);
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .about-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .contact {
-            background-color: var(--bg-light);
-            max-width: 100%;
-            width: 100%;
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        form button {
-            width: 100%;
-            padding: 1rem;
-            background-color: var(--primary);
-            color: var(--text-light);
-            border: none;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        form button:hover {
-            background-color: #333333;
-        }
-
-        footer {
-            background-color: var(--primary);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.25rem; }
-            nav ul { display: none; } 
-        }
-    </style>
+    <title>Home | Piano Studio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <div class="nav-container">
-            <div class="logo">Piano Studio</div>
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Piano Studio</a></div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#lessons">Lessons</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="lessons.html">Lessons</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Unlock Your Musical Potential</h1>
             <p>Professional, tailored piano lessons designed for beginners, intermediate players, and advanced enthusiasts of all ages.</p>
-            <a href="#contact" class="btn">Book a Consultation</a>
+            <a href="contact.html" class="btn">Book a Consultation</a>
         </div>
     </section>
 
-    <section id="lessons">
-        <h2 class="section-title">Lesson Programs</h2>
-        <div class="services-grid">
-            <div class="card">
-                <h3>Beginner Basics</h3>
-                <p>Perfect for children and adult beginners. Learn posture, reading notes, and basic rhythm patterns.</p>
-                <div class="price">$45 / hr</div>
-            </div>
-            <div class="card">
-                <h3>Intermediate Mastery</h3>
-                <p>Focus on fluid technique, dynamic expression, classical theory, and intermediate repertoire pieces.</p>
-                <div class="price">$60 / hr</div>
-            </div>
-            <div class="card">
-                <h3>Advanced Performance</h3>
-                <p>Audition preparation, advanced scale patterns, improvisation techniques, and concert-level mastery.</p>
-                <div class="price">$75 / hr</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <h2 class="section-title">Meet Your Instructor</h2>
+    <section>
+        <h2 class="section-title">Welcome</h2>
         <div class="about-container">
             <div class="about-text">
-                <p>Welcome! I am a passionate piano instructor with over a decade of performance and teaching experience. My mission is to make learning music enjoyable, engaging, and deeply fulfilling.</p>
-                <p>Whether you want to learn classical masterpieces, contemporary pop songs, or fundamental music theory, I adapt every lesson strategy to match your personal pacing and interests.</p>
+                <p>Whether you're picking up piano for the very first time or refining advanced repertoire, you'll find a lesson program built around your goals and pace.</p>
+                <p>Explore the <a href="lessons.html" style="color: var(--accent); font-weight: 600;">Lesson Programs</a> to find the right fit, learn more <a href="about.html" style="color: var(--accent); font-weight: 600;">About your instructor</a>, or head straight to <a href="contact.html" style="color: var(--accent); font-weight: 600;">Contact</a> to book a consultation.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="form-container">
-            <!-- Tip: Hook the action attribute up to a service like Formspree to get free email routing -->
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Your full name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="yourname@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Tell me about your experience level..."></textarea>
-                </div>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
 
     <footer>
         <p>&copy; 2026 Piano Studio. All rights reserved.</p>
