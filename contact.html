@@ -11,8 +11,9 @@
     <header>
         <div class="nav-container">
             <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">Piano Studio</a></div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
             <nav>
-                <ul>
+                <ul id="navMenu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="lessons.html">Lessons</a></li>
                     <li><a href="about.html">About</a></li>
@@ -27,8 +28,14 @@
     <section id="contact" class="contact">
         <h2 class="section-title">Send a Message</h2>
         <div class="form-container">
-            <!-- Tip: Hook the action attribute up to a service like Formspree to get free email routing -->
+            <!-- Replace YOUR_FORM_ID below with your own Formspree form ID -->
             <form action="https://formspree.io/f/mvkgperk" method="POST">
+                <!-- Sends visitors to thanks.html after submitting.
+                     Change this to your real domain once the site is live, e.g.
+                     https://www.yoursite.com/thanks.html -->
+                <input type="hidden" name="_next" value="thanks.html">
+                <!-- Subject line of the email you receive -->
+                <input type="hidden" name="_subject" value="New enquiry from Piano Studio website">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required placeholder="Your full name">
@@ -51,5 +58,15 @@
         <p>&copy; 2026 Piano Studio. All rights reserved.</p>
     </footer>
 
+
+    <script>
+        const toggle = document.getElementById('menuToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+            toggle.innerHTML = isOpen ? '&times;' : '&#9776;';
+        });
+    </script>
 </body>
 </html>
